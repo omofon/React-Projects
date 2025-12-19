@@ -18,7 +18,7 @@ function ExpenseList({ expenses, onDeleteExpense }) {
               onClick={() => onDeleteExpense(expense.id)}
               className="delete-btn"
             >
-              x
+              X
             </button>
           </div>
         </div>
