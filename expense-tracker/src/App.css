@@ -73,3 +73,106 @@ h1 {
 .expense-form button:hover {
   background: #0056b3;
 }
+
+.summary {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.summary h2 {
+  color: #28a745;
+  margin: 0;
+}
+
+.summary p {
+  color: #666;
+  margin: 0;
+}
+
+.empty-state {
+  text-align: center;
+  color: #999;
+  padding: 40px;
+  font-style: italic;
+}
+
+.expense-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 4px;
+  border-left: 4px solid #007bff;
+}
+
+.expense-info {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex: 1;
+}
+
+.expense-description {
+  font-weight: 600;
+  color: #333;
+  min-width: 150px;
+}
+
+.expense-category {
+  background: #e9ecef;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #666;
+}
+
+.expense-date {
+  color: #999;
+  font-size: 14px;
+}
+
+.expense-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.expense-amount {
+  font-weight: 700;
+  color: #28a745;
+  font-size: 18px;
+  min-width: 80px;
+  text-align: right;
+}
+
+.delete-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.delete-btn:hover {
+  background: #c82333;
+}
