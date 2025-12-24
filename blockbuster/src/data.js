@@ -8,7 +8,7 @@ export const movies = [
     runtime: 142,
     director: "Frank Darabont",
     poster: "https://via.placeholder.com/200x300/4A5568/FFFFFF?text=Shawshank",
-    watched: true
+    watched: true,
   },
   {
     id: 2,
@@ -18,8 +18,9 @@ export const movies = [
     rating: 9.0,
     runtime: 152,
     director: "Christopher Nolan",
-    poster: "https://via.placeholder.com/200x300/1F2937/FFFFFF?text=Dark+Knight",
-    watched: false
+    poster:
+      "https://via.placeholder.com/200x300/1F2937/FFFFFF?text=Dark+Knight",
+    watched: false,
   },
   {
     id: 3,
@@ -29,8 +30,9 @@ export const movies = [
     rating: 8.9,
     runtime: 154,
     director: "Quentin Tarantino",
-    poster: "https://via.placeholder.com/200x300/991B1B/FFFFFF?text=Pulp+Fiction",
-    watched: true
+    poster:
+      "https://via.placeholder.com/200x300/991B1B/FFFFFF?text=Pulp+Fiction",
+    watched: true,
   },
   {
     id: 4,
@@ -40,8 +42,9 @@ export const movies = [
     rating: 8.8,
     runtime: 142,
     director: "Robert Zemeckis",
-    poster: "https://via.placeholder.com/200x300/065F46/FFFFFF?text=Forrest+Gump",
-    watched: false
+    poster:
+      "https://via.placeholder.com/200x300/065F46/FFFFFF?text=Forrest+Gump",
+    watched: false,
   },
   {
     id: 5,
@@ -52,7 +55,7 @@ export const movies = [
     runtime: 148,
     director: "Christopher Nolan",
     poster: "https://via.placeholder.com/200x300/7C2D12/FFFFFF?text=Inception",
-    watched: true
+    watched: true,
   },
   {
     id: 6,
@@ -63,7 +66,7 @@ export const movies = [
     runtime: 136,
     director: "Wachowski Brothers",
     poster: "https://via.placeholder.com/200x300/14532D/FFFFFF?text=Matrix",
-    watched: false
+    watched: false,
   },
   {
     id: 7,
@@ -74,7 +77,7 @@ export const movies = [
     runtime: 145,
     director: "Martin Scorsese",
     poster: "https://via.placeholder.com/200x300/7C2D12/FFFFFF?text=Goodfellas",
-    watched: true
+    watched: true,
   },
   {
     id: 8,
@@ -84,8 +87,9 @@ export const movies = [
     rating: 8.6,
     runtime: 169,
     director: "Christopher Nolan",
-    poster: "https://via.placeholder.com/200x300/1E3A8A/FFFFFF?text=Interstellar",
-    watched: false
+    poster:
+      "https://via.placeholder.com/200x300/1E3A8A/FFFFFF?text=Interstellar",
+    watched: false,
   },
   {
     id: 9,
@@ -96,7 +100,7 @@ export const movies = [
     runtime: 151,
     director: "Martin Scorsese",
     poster: "https://via.placeholder.com/200x300/92400E/FFFFFF?text=Departed",
-    watched: true
+    watched: true,
   },
   {
     id: 10,
@@ -107,8 +111,8 @@ export const movies = [
     runtime: 155,
     director: "Ridley Scott",
     poster: "https://via.placeholder.com/200x300/78350F/FFFFFF?text=Gladiator",
-    watched: false
-  }
+    watched: false,
+  },
 ];
 ```
 
@@ -150,7 +154,7 @@ export const movies = [
 - Learn state immutability
 
 ## Component Structure
-// ```
+// ```;
 // App
 // ├── Stats (total movies, avg rating, watched count)
 // ├── FilterBar
