@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "Hanken Grotesk";
+  src: url("/src/assets/fonts/HankenGrotesk-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @import "tailwindcss";
 
 @theme {
@@ -15,11 +24,15 @@
   --color-violet-blue: hsla(256, 72%, 46%, 1);
   --color-persian-blue: hsla(241, 72%, 46%, 0);
 
-  /* --- Neutral Colors */
+  /* --- Neutral Colors --- */
   --color-white: hsl(0, 0%, 100%);
   --color-pale-blue: hsl(221, 100%, 96%);
   --color-light-lavendar: hsl(241, 100%, 89%);
   --color-dark-grey-blue: hsl(224, 30%, 27%);
 }
 
-
+@layer base {
+  body {
+    font-family: "Hanken Grotesk", system-ui, sans-serif;
+  }
+}
