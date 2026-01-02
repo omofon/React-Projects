@@ -35,4 +35,16 @@
   body {
     font-family: "Hanken Grotesk", system-ui, sans-serif;
   }
+
+  p {
+    color: var(--color-light-lavendar);
+    font-size: 18px;
+  }
+
+  h1,
+  h2 {
+    color: white;
+    margin: 0;
+    padding: 0;
+  }
 }
