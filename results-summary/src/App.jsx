@@ -1,5 +1,4 @@
 import resultsData from "./data.json";
-import ResultsAverage from "./components/ResultsAverage";
 import ResultCard from "./components/ResultCard";
 import Button from "./components/common/Button";
 
@@ -9,8 +8,9 @@ export default function App() {
       <section>
         <p>Your Result</p>
         <div>
-          {resultsData.reduce((sum, item) => sum + item.score, 0) /
-            resultsData.length}
+          {(resultsData.reduce((sum, item) => sum + item.score, 0) /
+            resultsData.length) |
+            0}
           <p>of 100</p>
         </div>
         <h2>Great</h2>
