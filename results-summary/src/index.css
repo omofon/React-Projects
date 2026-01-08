@@ -34,8 +34,9 @@
 @layer base {
   body {
     font-family: "Hanken Grotesk", system-ui, sans-serif;
-  }
 
+  }
+  
   p {
     color: var(--color-light-lavendar);
     font-size: 18px;

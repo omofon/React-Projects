@@ -1,10 +1,10 @@
 import categoryStyles from "../utils/categoryStyles";
 
 function ResultCard({ category, score, icon }) {
-  const themeClasses = categoryStyles[category];
+  const theme = categoryStyles[category];
   return (
     <div
-      className={`w-full rounded-lg px-4 py-4 flex items-center justify-between ${themeClasses}`}
+      className={`w-full rounded-lg px-4 py-4 flex items-center justify-between ${theme}`}
     >
       <div className="flex gap-2 items-center">
         <img src={icon} alt={`${category} icon`} />
