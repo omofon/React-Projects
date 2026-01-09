@@ -4,8 +4,8 @@ import Button from "./components/common/Button";
 
 export default function App() {
   return (
-    <main>
-      <article className="max-w-full min-h-dvh bg-pale-blue flex flex-col gap-2">
+    <main className="md:flex md:items-center md:justify-center md:min-h-dvh">
+      <article className="max-w-full md:max-w-lg min-h-dvh md:min-h-0 bg-pale-blue flex flex-col lg:flex-row gap-2 md:rounded-3xl md:shadow-xl overflow-hidden">
         <section className="bg-linear-to-b from-light-slate-blue to-light-royal-blue text-center flex flex-col justify-center items-center gap-5 px-15 py-10 w-full rounded-b-4xl">
           <p>Your Result</p>
           <div className="w-30 h-30 flex flex-col gap-1 items-center justify-center rounded-full bg-linear-to-b from-violet-blue to-persian-blue ">
