@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  /* Fonts */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Background Colors */
+  --bg-primary: #141414;
+  --bg-secondary: #181818;
+  --bg-tertiary: #2a2a2a;
+  --bg-modal: #000000;
+
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #d2d2d2;
+  --text-muted: #808080;
+
+  /* Brand */
+  --netflix-red: #e50914;
+  --netflix-red-dark: #b20710;
+
+  /* Accents */
+  --accent-green: #46d369;
+  --accent-blue: #0071eb;
+  --accent-yellow: #ffd900;
+
+  /* Borders */
+  --border-subtle: #2a2a2a;
+  --border-visible: #404040;
+  --border-focus: #ffffff;
+
+  /* Buttons */
+  --btn-white: #ffffff;
+  --btn-white-hover: rgba(255, 255, 255, 0.85);
+  --btn-gray: rgba(109, 109, 110, 0.7);
+  --btn-gray-hover: rgba(109, 109, 110, 0.4);
+
+  /* Shadows */
+  --shadow-light: rgba(0, 0, 0, 0.3);
+  --shadow-medium: rgba(0, 0, 0, 0.5);
+  --shadow-heavy: rgba(0, 0, 0, 0.8);
+
+  /* Interaction */
+  --hover-overlay: rgba(255, 255, 255, 0.1);
+  --active-overlay: rgba(255, 255, 255, 0.2);
+}
+
+
+@base {
+  html {
+    font-family: var(--font-sans);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  button, input, textarea, select {
+    font: inherit;
+    color: inherit;
+  }
+}

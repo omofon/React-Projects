@@ -1,0 +1,26 @@
+Filtering:
+javascriptconst filteredMovies = movies.filter(movie => {
+  const matchesGenre = selectedGenre === "All" || movie.genre === selectedGenre;
+  const matchesWatched = watchedFilter === "All" || 
+    (watchedFilter === "Watched" && movie.watched) ||
+    (watchedFilter === "Not Watched" && !movie.watched);
+  const matchesSearch = movie.title.toLowerCase().includes(searchTerm.toLowerCase());
+  
+  return matchesGenre && matchesWatched && matchesSearch;
+});
+
+Sorting:
+javascriptconst sorted = [...filteredMovies].sort((a, b) => {
+  if (sortBy === "rating") return b.rating - a.rating;
+  if (sortBy === "year") return b.year - a.year;
+  if (sortBy === "title") return a.title.localeCompare(b.title);
+  if (sortBy === "runtime") return b.runtime - a.runtime;
+  return 0;
+});
+
+Stats:
+javascriptconst stats = {
+  total: movies.length,
+  watched: movies.filter(m => m.watched).length,
+  avgRating: (movies.reduce((sum, m) => sum + m.rating, 0) / movies.length).toFixed(1)
+};
