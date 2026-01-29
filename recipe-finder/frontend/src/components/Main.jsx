@@ -25,7 +25,7 @@ export default function Main() {
     if (!newIngredient) return;
 
     setIngredients((prev) => [...prev, newIngredient]);
-    formRef.current.reset(); // Clears input after adding
+    formRef.current.reset();
   }
 
   function clearList() {
@@ -36,7 +36,7 @@ export default function Main() {
     <main className="space-y-8">
       <form ref={formRef} action={handleAction} className="flex gap-2 h-12">
         <input
-          className="flex-grow px-4 rounded-lg border border-linen bg-canvas text-ink focus:outline-none focus:ring-2 focus:ring-clay/50 shadow-sm"
+          className="grow px-4 rounded-lg border border-linen bg-canvas text-ink focus:outline-none focus:ring-2 focus:ring-clay/50 shadow-sm"
           type="text"
           name="ingredient"
           placeholder="e.g. Eggs, Flour, Milk"

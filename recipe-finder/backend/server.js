@@ -18,9 +18,14 @@ app.post("/api/recipe", async (req, res) => {
     return res.status(400).json({ error: "Invalid ingredients" });
   }
 
-  const prompt = `
-You are a professional chef.
-
+  try {
+    const result = await hf.chatCompletion({
+      model: "mistralai/Mistral-7B-Instruct-v0.2",
+      messages: [
+        { role: "system", content: "You are a professional chef." },
+        {
+          role: "user",
+          content: `
 Ingredients:
 ${ingredients.join(", ")}
 
@@ -31,20 +36,15 @@ Generate:
 4. Cooking tips
 
 Format the response in Markdown.
-`;
-
-  try {
-    const result = await hf.textGeneration({
-      model: "mistralai/Mistral-7B-Instruct-v0.2",
-      inputs: prompt,
-      parameters: {
-        max_new_tokens: 600,
-        temperature: 0.6,
-        top_p: 0.9,
-      },
+`,
+        },
+      ],
+      max_tokens: 600,
+      temperature: 0.6,
     });
 
-    res.json({ recipe: result.generated_text });
+    // Return the first choice from the model
+    res.json({ recipe: result.choices[0].message.content });
   } catch (err) {
     console.error("HF ERROR:", err);
     res.status(500).json({ error: "AI generation failed" });
