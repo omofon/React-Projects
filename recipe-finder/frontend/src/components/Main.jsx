@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import IngredientsList from "./IngredientsList";
 import ClaudeRecipe from "./ClaudeRecipe";
-import { getRecipeFromMistral } from "../utils/ai";
+import { getRecipe } from "../utils/ai";
 
 export default function Main() {
   const [ingredients, setIngredients] = useState([]);
@@ -15,8 +15,8 @@ export default function Main() {
     }
   }, [recipe]);
 
-  async function getRecipe() {
-    const recipeMarkdown = await getRecipeFromMistral(ingredients);
+  async function generateRecipe() {
+    const recipeMarkdown = await getRecipe(ingredients);
     setRecipe(recipeMarkdown);
   }
 
@@ -50,7 +50,7 @@ export default function Main() {
       {ingredients.length > 0 && (
         <IngredientsList
           ingredients={ingredients}
-          getRecipe={getRecipe}
+          getRecipe={generateRecipe}
           ingredientsRef={recipeSection}
           clearList={clearList}
         />
