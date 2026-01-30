@@ -7,6 +7,12 @@ dotenv.config();
 
 const app = express();
 app.use(cors());
+
+// // Production version:
+// app.use(cors({
+//   origin: "https://yourdomain.com"  // Only allow your frontend
+// }));
+
 app.use(express.json());
 
 if (!process.env.HF_ACCESS_TOKEN) {
