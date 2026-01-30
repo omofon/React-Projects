@@ -11,6 +11,10 @@ app.use(express.json());
 
 const hf = new HfInference(process.env.HF_ACCESS_TOKEN);
 
+app.post("/api/test", (req, res) => {
+  res.json({ ok: true, body: req.body });
+});
+
 app.post("/api/recipe", async (req, res) => {
   const { ingredients } = req.body;
 
@@ -20,7 +24,7 @@ app.post("/api/recipe", async (req, res) => {
 
   try {
     const result = await hf.chatCompletion({
-      model: "mistralai/Mistral-7B-Instruct-v0.2",
+      model: "HuggingFaceH4/zephyr-7b-beta",
       messages: [
         { role: "system", content: "You are a professional chef." },
         {
@@ -46,8 +50,12 @@ Format the response in Markdown.
     // Return the first choice from the model
     res.json({ recipe: result.choices[0].message.content });
   } catch (err) {
-    console.error("HF ERROR:", err);
-    res.status(500).json({ error: "AI generation failed" });
+    console.error("HF ERROR FULL:", err);
+
+    res.status(500).json({
+      error: "AI generation failed",
+      details: err?.message || err,
+    });
   }
 });
 
