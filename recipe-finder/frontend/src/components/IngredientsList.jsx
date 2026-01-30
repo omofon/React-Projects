@@ -3,6 +3,7 @@ export default function IngredientsList({
   getRecipe,
   ingredientsRef,
   clearList,
+  isLoading,
 }) {
   const ingredientsListItems = ingredients.map((ingredient) => (
     <li
@@ -43,9 +44,10 @@ export default function IngredientsList({
           </div>
           <button
             onClick={getRecipe}
+            disabled={isLoading}
             className="bg-clay hover:bg-burnt-clay text-white px-5 py-2.5 rounded-lg font-semibold shadow transition-all hover:scale-105 active:scale-95"
           >
-            Get a recipe
+            {isLoading ? "Generating..." : "Get a recipe"}
           </button>
         </div>
       )}

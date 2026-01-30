@@ -6,6 +6,8 @@ import { getRecipe } from "../utils/ai";
 export default function Main() {
   const [ingredients, setIngredients] = useState([]);
   const [recipe, setRecipe] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   const recipeSection = useRef(null);
   const formRef = useRef(null);
 
@@ -16,20 +18,33 @@ export default function Main() {
   }, [recipe]);
 
   async function generateRecipe() {
-    const recipeMarkdown = await getRecipe(ingredients);
-    setRecipe(recipeMarkdown);
+    setIsLoading(true);
+    setError(null);
+    setRecipe(""); // Clear previous recipe
+
+    try {
+      const recipeMarkdown = await getRecipe(ingredients);
+      setRecipe(recipeMarkdown);
+    } catch (err) {
+      console.error("Recipe generation error:", err);
+      setError(err.message || "Failed to generate recipe. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   function handleAction(formData) {
     const newIngredient = formData.get("ingredient");
-    if (!newIngredient) return;
+    if (!newIngredient?.trim()) return;
 
-    setIngredients((prev) => [...prev, newIngredient]);
+    setIngredients((prev) => [...prev, newIngredient.trim()]);
     formRef.current.reset();
   }
 
   function clearList() {
     setIngredients([]);
+    setRecipe("");
+    setError(null);
   }
 
   return (
@@ -41,8 +56,12 @@ export default function Main() {
           name="ingredient"
           placeholder="e.g. Eggs, Flour, Milk"
           aria-label="Add ingredient"
+          disabled={isLoading}
         />
-        <button className="bg-clay hover:bg-burnt-clay text-white px-6 py-2 rounded-lg font-medium transition-colors shadow-md active:scale-95">
+        <button
+          className="bg-clay hover:bg-burnt-clay text-white px-6 py-2 rounded-lg font-medium transition-colors shadow-md active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+          disabled={isLoading}
+        >
           + Add
         </button>
       </form>
@@ -53,10 +72,35 @@ export default function Main() {
           getRecipe={generateRecipe}
           ingredientsRef={recipeSection}
           clearList={clearList}
+          isLoading={isLoading}
         />
       )}
 
-      {recipe && (
+      {/* Loading State */}
+      {isLoading && (
+        <div className="flex flex-col items-center justify-center py-12 space-y-4">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-clay"></div>
+          <p className="text-ink/60">Generating your recipe...</p>
+        </div>
+      )}
+
+      {/* Error State */}
+      {error && (
+        <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+          <p className="text-red-800">
+            <strong>Error:</strong> {error}
+          </p>
+          <button
+            onClick={() => generateRecipe()}
+            className="mt-2 text-sm text-red-600 hover:text-red-800 underline"
+          >
+            Try again
+          </button>
+        </div>
+      )}
+
+      {/* Recipe Display */}
+      {recipe && !isLoading && (
         <div ref={recipeSection} className="pt-4">
           <ClaudeRecipe recipe={recipe} />
         </div>
